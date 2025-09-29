@@ -54,12 +54,15 @@ class PostResponse(BaseModel):
 
 def get_news_agent():
     google_api_key = os.getenv("GOOGLE_API_KEY")
+    firecrawl_api_key = os.getenv("FIRECRAWL_API_KEY")
+    
     if not google_api_key:
         raise HTTPException(
             status_code=500,
             detail="Google API key not configured. Please set GOOGLE_API_KEY environment variable."
         )
-    return NewsAgent(google_api_key)
+    
+    return NewsAgent(google_api_key, firecrawl_api_key)
 
 @app.get("/")
 async def root():

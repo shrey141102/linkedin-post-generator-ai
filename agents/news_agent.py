@@ -7,7 +7,7 @@ import re
 class NewsAgent:
     def __init__(self, google_api_key: str, firecrawl_api_key: str = None):
         self.llm = ChatGoogleGenerativeAI(
-            model="gemini-pro",
+            model="gemini-2.5-flash",
             google_api_key=google_api_key,
             temperature=0.7
         )
